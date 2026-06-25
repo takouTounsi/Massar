@@ -1,0 +1,275 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-orientation}
+      POSTGRES_USER: ${POSTGRES_USER:-orientation}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-orientation}
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-orientation} -d ${POSTGRES_DB:-orientation}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api_gateway:
+    build:
+      context: .
+      dockerfile: services/api_gateway/Dockerfile
+    environment:
+      APP_ENV: docker
+      SERVICE_NAME: api_gateway
+      ORCHESTRATION_MODE: http
+      DATABASE_URL: postgresql+psycopg://orientation:orientation@postgres:5432/orientation
+      INTAKE_SERVICE_URL: http://intake_service:5051
+      PROFILE_SERVICE_URL: http://profile_service:5052
+      MATURITY_SERVICE_URL: http://maturity_service:5053
+      SCORING_SERVICE_URL: http://scoring_service:5054
+      BLOCKER_SERVICE_URL: http://blocker_service:5055
+      CONFIDENCE_SERVICE_URL: http://confidence_service:5056
+      RESOURCE_SERVICE_URL: http://resource_service:5057
+      ELIGIBILITY_SERVICE_URL: http://eligibility_service:5058
+      ROADMAP_SERVICE_URL: http://roadmap_service:5059
+      PROGRESS_SERVICE_URL: http://progress_service:5060
+      EXPLAINABILITY_SERVICE_URL: http://explainability_service:5065
+      CLASSIFICATION_SERVICE_URL: http://classification_service:5061
+      DEMO_MODE: ${DEMO_MODE:-true}
+      ENABLE_2FA: ${ENABLE_2FA:-true}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:5000}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5000,http://localhost:5050}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-replace_me_with_a_long_random_secret}
+      JWT_ACCESS_TOKEN_EXPIRE_MINUTES: ${JWT_ACCESS_TOKEN_EXPIRE_MINUTES:-15}
+      JWT_REFRESH_TOKEN_EXPIRE_DAYS: ${JWT_REFRESH_TOKEN_EXPIRE_DAYS:-7}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      intake_service:
+        condition: service_started
+      profile_service:
+        condition: service_started
+      maturity_service:
+        condition: service_started
+      scoring_service:
+        condition: service_started
+      blocker_service:
+        condition: service_started
+      confidence_service:
+        condition: service_started
+      resource_service:
+        condition: service_started
+      eligibility_service:
+        condition: service_started
+      roadmap_service:
+        condition: service_started
+      progress_service:
+        condition: service_started
+      classification_service:
+        condition: service_started
+      explainability_service:
+        condition: service_started
+    ports:
+      - "5050:5050"
+
+  migrate:
+    build:
+      context: .
+      dockerfile: services/api_gateway/Dockerfile
+    command: ["alembic", "upgrade", "head"]
+    environment:
+      SERVICE_NAME: migrate
+      DATABASE_URL: postgresql+psycopg://orientation:orientation@postgres:5432/orientation
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  intake_service:
+    build:
+      context: .
+      dockerfile: services/intake_service/Dockerfile
+    environment:
+      SERVICE_NAME: intake_service
+      APP_ENV: docker
+      # LLM config comes from the project .env (Compose substitutes ${...} from it).
+      # Defaults to the mock provider when unset so the stack still boots offline.
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      OPENAI_COMPATIBLE_BASE_URL: ${OPENAI_COMPATIBLE_BASE_URL:-}
+      OPENAI_COMPATIBLE_API_KEY: ${OPENAI_COMPATIBLE_API_KEY:-}
+      OPENAI_COMPATIBLE_MODEL: ${OPENAI_COMPATIBLE_MODEL:-}
+      # Docker-internal endpoints (must win over any localhost values in .env).
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://orientation:orientation@postgres:5432/orientation
+    depends_on:
+      redis:
+        condition: service_started
+    ports:
+      - "5051:5051"
+
+  classification_service:
+    build:
+      context: .
+      dockerfile: services/classification_service/Dockerfile
+    environment:
+      SERVICE_NAME: classification_service
+      APP_ENV: docker
+      # The PML questionnaire's free-text first step uses the configured LLM
+      # provider; defaults to mock so the stack still boots offline.
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      OPENAI_COMPATIBLE_BASE_URL: ${OPENAI_COMPATIBLE_BASE_URL:-}
+      OPENAI_COMPATIBLE_API_KEY: ${OPENAI_COMPATIBLE_API_KEY:-}
+      OPENAI_COMPATIBLE_MODEL: ${OPENAI_COMPATIBLE_MODEL:-}
+    ports:
+      - "5061:5061"
+
+  profile_service:
+    build:
+      context: .
+      dockerfile: services/profile_service/Dockerfile
+    environment:
+      SERVICE_NAME: profile_service
+      DATABASE_URL: postgresql+psycopg://orientation:orientation@postgres:5432/orientation
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    ports:
+      - "5052:5052"
+
+  maturity_service:
+    build:
+      context: .
+      dockerfile: services/maturity_service/Dockerfile
+    environment:
+      SERVICE_NAME: maturity_service
+      MATURITY_MODEL_PROVIDER: rules
+    ports:
+      - "5053:5053"
+
+  scoring_service:
+    build:
+      context: .
+      dockerfile: services/scoring_service/Dockerfile
+    environment:
+      SERVICE_NAME: scoring_service
+      SCORING_MODEL_PROVIDER: weighted_rules
+    ports:
+      - "5054:5054"
+
+  blocker_service:
+    build:
+      context: .
+      dockerfile: services/blocker_service/Dockerfile
+    environment:
+      SERVICE_NAME: blocker_service
+      BLOCKER_MODEL_PROVIDER: rules
+    ports:
+      - "5055:5055"
+
+  confidence_service:
+    build:
+      context: .
+      dockerfile: services/confidence_service/Dockerfile
+    environment:
+      SERVICE_NAME: confidence_service
+    ports:
+      - "5056:5056"
+
+  resource_service:
+    build:
+      context: .
+      dockerfile: services/resource_service/Dockerfile
+    environment:
+      SERVICE_NAME: resource_service
+    ports:
+      - "5057:5057"
+
+  eligibility_service:
+    build:
+      context: .
+      dockerfile: services/eligibility_service/Dockerfile
+    environment:
+      SERVICE_NAME: eligibility_service
+    ports:
+      - "5058:5058"
+
+  roadmap_service:
+    build:
+      context: .
+      dockerfile: services/roadmap_service/Dockerfile
+    environment:
+      SERVICE_NAME: roadmap_service
+    ports:
+      - "5059:5059"
+
+  progress_service:
+    build:
+      context: .
+      dockerfile: services/progress_service/Dockerfile
+    environment:
+      SERVICE_NAME: progress_service
+    ports:
+      - "5060:5060"
+
+  explainability_service:
+    build:
+      context: .
+      dockerfile: services/explainability_service/Dockerfile
+    environment:
+      SERVICE_NAME: explainability_service
+      LLM_PROVIDER: mock
+    ports:
+      - "5065:5065"
+
+  knowledge_ingestion_service:
+    build:
+      context: .
+      dockerfile: services/knowledge_ingestion_service/Dockerfile
+    environment:
+      SERVICE_NAME: knowledge_ingestion_service
+    ports:
+      - "5062:5062"
+
+  evaluation_service:
+    build:
+      context: .
+      dockerfile: services/evaluation_service/Dockerfile
+    environment:
+      SERVICE_NAME: evaluation_service
+    ports:
+      - "5063:5063"
+
+  assistant_service:
+    build:
+      context: .
+      dockerfile: services/assistant_service/Dockerfile
+    environment:
+      SERVICE_NAME: assistant_service
+      LLM_PROVIDER: mock
+    ports:
+      - "5064:5064"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    environment:
+      VITE_API_BASE_URL: http://localhost:5050
+    depends_on:
+      api_gateway:
+        condition: service_started
+    ports:
+      - "5000:5000"
+
+volumes:
+  postgres_data:

@@ -1,0 +1,602 @@
+{
+  "maturity_profile_ids": [
+    "synthetic-profile-001",
+    "synthetic-profile-002",
+    "synthetic-profile-003",
+    "synthetic-profile-004",
+    "synthetic-profile-005",
+    "synthetic-profile-006",
+    "synthetic-profile-007",
+    "synthetic-profile-008",
+    "synthetic-profile-009",
+    "synthetic-profile-010",
+    "synthetic-profile-011",
+    "synthetic-profile-012",
+    "synthetic-profile-013",
+    "synthetic-profile-014",
+    "synthetic-profile-015",
+    "synthetic-profile-016",
+    "synthetic-profile-017",
+    "synthetic-profile-018",
+    "synthetic-profile-019",
+    "synthetic-profile-020",
+    "synthetic-profile-021",
+    "synthetic-profile-022",
+    "synthetic-profile-023",
+    "synthetic-profile-024",
+    "synthetic-profile-025",
+    "synthetic-profile-026",
+    "synthetic-profile-027",
+    "synthetic-profile-028",
+    "synthetic-profile-029",
+    "synthetic-profile-030",
+    "synthetic-profile-031",
+    "synthetic-profile-032",
+    "synthetic-profile-033",
+    "synthetic-profile-034",
+    "synthetic-profile-035",
+    "synthetic-profile-036",
+    "synthetic-profile-037",
+    "synthetic-profile-038",
+    "synthetic-profile-039",
+    "synthetic-profile-040",
+    "synthetic-profile-041",
+    "synthetic-profile-042",
+    "synthetic-profile-043",
+    "synthetic-profile-044",
+    "synthetic-profile-045",
+    "synthetic-profile-046",
+    "synthetic-profile-047",
+    "synthetic-profile-048",
+    "synthetic-profile-049",
+    "synthetic-profile-050",
+    "synthetic-profile-051",
+    "synthetic-profile-052",
+    "synthetic-profile-053",
+    "synthetic-profile-054",
+    "synthetic-profile-055",
+    "synthetic-profile-056",
+    "synthetic-profile-057",
+    "synthetic-profile-058",
+    "synthetic-profile-059",
+    "synthetic-profile-060",
+    "synthetic-profile-061",
+    "synthetic-profile-062",
+    "synthetic-profile-063",
+    "synthetic-profile-064",
+    "synthetic-profile-065",
+    "synthetic-profile-066",
+    "synthetic-profile-067",
+    "synthetic-profile-068",
+    "synthetic-profile-069",
+    "synthetic-profile-070",
+    "synthetic-profile-071",
+    "synthetic-profile-072",
+    "synthetic-profile-073",
+    "synthetic-profile-074",
+    "synthetic-profile-075",
+    "synthetic-profile-076",
+    "synthetic-profile-077",
+    "synthetic-profile-078",
+    "synthetic-profile-079",
+    "synthetic-profile-080",
+    "synthetic-profile-081",
+    "synthetic-profile-082",
+    "synthetic-profile-083",
+    "synthetic-profile-084",
+    "synthetic-profile-085",
+    "synthetic-profile-086",
+    "synthetic-profile-087",
+    "synthetic-profile-088",
+    "synthetic-profile-089",
+    "synthetic-profile-090",
+    "synthetic-profile-091",
+    "synthetic-profile-092",
+    "synthetic-profile-093",
+    "synthetic-profile-094",
+    "synthetic-profile-095",
+    "synthetic-profile-096",
+    "synthetic-profile-097",
+    "synthetic-profile-098",
+    "synthetic-profile-099",
+    "synthetic-profile-100"
+  ],
+  "resource_queries": [
+    {
+      "case_id": "rq_001_market_validation_funding",
+      "description": "Tunisian startup at market validation with weak customer traction and funding goal.",
+      "profile": {
+        "country": "TN",
+        "business_type": "startup",
+        "sector": "technology",
+        "declared_stage": "FUNDRAISING",
+        "primary_goal": "funding",
+        "has_mvp": true,
+        "has_revenue": false,
+        "paying_customers": 0,
+        "documented_interviews": 3,
+        "market_validation_evidence": []
+      },
+      "expected_relevant_resource_ids": [
+        "res-guide-001",
+        "res-guide-002",
+        "res-guide-004"
+      ],
+      "expected_eligibility_statuses": {
+        "res-guide-001": "POSSIBLY_ELIGIBLE",
+        "res-guide-002": "POSSIBLY_ELIGIBLE",
+        "res-guide-004": "POSSIBLY_ELIGIBLE"
+      }
+    },
+    {
+      "case_id": "rq_002_export_quality",
+      "description": "Tunisian company preparing export and quality readiness.",
+      "profile": {
+        "country": "TN",
+        "business_type": "traditional_business",
+        "sector": "industry",
+        "declared_stage": "GROWTH",
+        "primary_goal": "export",
+        "has_mvp": true,
+        "has_revenue": true,
+        "paying_customers": 8,
+        "documented_interviews": 15,
+        "market_validation_evidence": [
+          "invoice",
+          "customer_list"
+        ],
+        "process_automation_level": 0.6
+      },
+      "expected_relevant_resource_ids": [
+        "res-guide-003",
+        "res-guide-007"
+      ],
+      "expected_eligibility_statuses": {
+        "res-guide-003": "POSSIBLY_ELIGIBLE",
+        "res-guide-007": "POSSIBLY_ELIGIBLE"
+      }
+    },
+    {
+      "case_id": "rq_003_public_procurement_gap",
+      "description": "BTP SME preparing public procurement with missing administrative readiness.",
+      "profile": {
+        "country": "TN",
+        "business_type": "traditional_business",
+        "sector": "construction",
+        "declared_stage": "STRUCTURATION",
+        "primary_goal": "public_procurement",
+        "has_mvp": true,
+        "has_revenue": false,
+        "paying_customers": 1,
+        "documented_interviews": 4,
+        "wants_public_tenders": true,
+        "administrative_documents_ready": false,
+        "financial_capacity_score": 25
+      },
+      "expected_relevant_resource_ids": [],
+      "not_measured_reason": "The current local resource corpus does not contain a public-procurement-specific resource."
+    },
+    {
+      "case_id": "rq_004_legal_formalization",
+      "description": "Early-stage founder seeking legal formalization and offer clarity resources.",
+      "profile": {
+        "country": "TN",
+        "business_type": "startup",
+        "sector": "technology",
+        "declared_stage": "STRUCTURATION",
+        "primary_goal": "launch",
+        "has_mvp": true,
+        "has_revenue": false,
+        "paying_customers": 0,
+        "documented_interviews": 8
+      },
+      "expected_relevant_resource_ids": [
+        "res-guide-001",
+        "res-guide-002",
+        "res-guide-004"
+      ]
+    },
+    {
+      "case_id": "rq_005_funding_evidence_pack",
+      "description": "Startup preparing a funding evidence pack with weak market sizing.",
+      "profile": {
+        "country": "TN",
+        "business_type": "startup",
+        "sector": "technology",
+        "declared_stage": "FUNDRAISING",
+        "primary_goal": "funding",
+        "has_mvp": true,
+        "has_revenue": true,
+        "paying_customers": 2,
+        "documented_interviews": 15,
+        "market_size_known": false,
+        "market_validation_evidence": [
+          "interview_log",
+          "pilot_feedback"
+        ]
+      },
+      "expected_relevant_resource_ids": [
+        "res-guide-001",
+        "res-guide-002",
+        "res-guide-004"
+      ]
+    }
+  ],
+  "robustness_cases": [
+    {
+      "case_id": "missing_fields_profile",
+      "expected_behavior": "No crash; missing fields visible",
+      "actual_behavior": "missing=['monthly_revenue', 'market_size_known', 'competition_understanding', 'revenue_model_clarity', 'process_automation_level', 'customer_retention']",
+      "pass": true
+    },
+    {
+      "case_id": "invalid_score_range_validation",
+      "expected_behavior": "Pydantic rejects invalid score range",
+      "actual_behavior": "ValidationError",
+      "pass": true
+    },
+    {
+      "case_id": "llm_mock_fallback",
+      "expected_behavior": "Mock provider returns deterministic text",
+      "actual_behavior": "Diagnostic summary: stage=IDEATION; blockers=0; prompt=Explain",
+      "pass": true
+    },
+    {
+      "case_id": "expired_decryption_lease",
+      "expected_behavior": "Expired lease is denied",
+      "actual_behavior": "LeaseExpired",
+      "pass": true
+    },
+    {
+      "case_id": "unauthorized_project_route",
+      "expected_behavior": "Protected route returns 401/403",
+      "actual_behavior": "401",
+      "pass": true
+    }
+  ],
+  "anomaly_cases": [
+    {
+      "case_id": "high_traction_no_documented_evidence",
+      "expected": "high_traction_no_documented_evidence",
+      "actual": [
+        "high_traction_no_documented_evidence"
+      ],
+      "pass": true
+    },
+    {
+      "case_id": "manual_processes_limit_growth",
+      "expected": "manual_processes_limit_growth",
+      "actual": [
+        "high_traction_no_documented_evidence",
+        "manual_processes_limit_growth"
+      ],
+      "pass": true
+    },
+    {
+      "case_id": "high_innovation_claim_no_ip",
+      "expected": "high_innovation_claim_no_ip",
+      "actual": [
+        "high_innovation_claim_no_ip"
+      ],
+      "pass": true
+    },
+    {
+      "case_id": "revenue_without_mvp_artifact",
+      "expected": "revenue_without_mvp_artifact",
+      "actual": [
+        "revenue_without_mvp_artifact"
+      ],
+      "pass": true
+    },
+    {
+      "case_id": "high_sdg_without_practices",
+      "expected": "high_sdg_without_practices",
+      "actual": [
+        "high_sdg_without_practices"
+      ],
+      "pass": true
+    }
+  ],
+  "blocker_case_sample": [
+    {
+      "case_id": "synthetic-profile-001",
+      "expected": "MARKET_VALIDATION_BLOCKER",
+      "actual": "MARKET_VALIDATION_BLOCKER",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-001",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-001",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-002",
+      "expected": "MARKET_VALIDATION_BLOCKER",
+      "actual": "MARKET_VALIDATION_BLOCKER",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-002",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-002",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-003",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-003",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-003",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-004",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-004",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-004",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-005",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-005",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-005",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-006",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-006",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-006",
+      "expected": "none",
+      "actual": "SCALABILITY_BLOCKER",
+      "pass": false
+    },
+    {
+      "case_id": "synthetic-profile-007",
+      "expected": "MARKET_VALIDATION_BLOCKER",
+      "actual": "MARKET_VALIDATION_BLOCKER",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-007",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-007",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-008",
+      "expected": "MARKET_VALIDATION_BLOCKER",
+      "actual": "MARKET_VALIDATION_BLOCKER",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-008",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-008",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-009",
+      "expected": "MARKET_VALIDATION_BLOCKER",
+      "actual": "MARKET_VALIDATION_BLOCKER",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-009",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-009",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-010",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-010",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-010",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-011",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-011",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-011",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-012",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-012",
+      "expected": "TENDER_READINESS_BLOCKER",
+      "actual": "TENDER_READINESS_BLOCKER",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-012",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-013",
+      "expected": "MARKET_VALIDATION_BLOCKER",
+      "actual": "MARKET_VALIDATION_BLOCKER",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-013",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-013",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-014",
+      "expected": "MARKET_VALIDATION_BLOCKER",
+      "actual": "MARKET_VALIDATION_BLOCKER",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-014",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-014",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-015",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-015",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-015",
+      "expected": "none",
+      "actual": "SCALABILITY_BLOCKER",
+      "pass": false
+    },
+    {
+      "case_id": "synthetic-profile-016",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-016",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-016",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-017",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    },
+    {
+      "case_id": "synthetic-profile-017",
+      "expected": "none",
+      "actual": "none",
+      "pass": true
+    }
+  ]
+}

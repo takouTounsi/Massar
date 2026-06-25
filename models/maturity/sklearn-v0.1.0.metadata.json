@@ -1,0 +1,6 @@
+{
+  "name": "sklearn_maturity",
+  "version": "sklearn-v0.1.0",
+  "status": "placeholder_trained_from_synthetic_seed",
+  "fallback": "rules-v0.1.0"
+}

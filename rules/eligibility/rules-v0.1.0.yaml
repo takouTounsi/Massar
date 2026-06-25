@@ -1,0 +1,10 @@
+version: rules-v0.1.0
+statuses:
+  - ELIGIBLE
+  - POSSIBLY_ELIGIBLE
+  - NOT_ELIGIBLE
+  - INSUFFICIENT_DATA
+principles:
+  - relevance is not eligibility
+  - missing data must be visible
+  - a failed hard condition blocks recommendation

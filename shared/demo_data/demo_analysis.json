@@ -1,0 +1,107 @@
+{
+  "analyses": {
+    "11111111-1111-4111-8111-111111111111": {
+      "diagnosed_stage": "MARKET_VALIDATION",
+      "declared_stage": "FUNDRAISING",
+      "gap_level": "HIGH",
+      "maturity_confidence": 0.84,
+      "scores": {
+        "market_score": 38,
+        "commercial_offer_score": 42,
+        "innovation_score": 65,
+        "scalability_score": 35,
+        "green_score": 50
+      },
+      "score_details": {
+        "market_score": {"weak_sub_scores": ["customer_validation", "revenue_model_clarity"]},
+        "commercial_offer_score": {"weak_sub_scores": ["pricing_strategy", "legal_compliance"]},
+        "scalability_score": {"weak_sub_scores": ["process_automation"]}
+      },
+      "blockers": [
+        {
+          "id": "blocker-market-validation",
+          "type": "MARKET_VALIDATION_BLOCKER",
+          "severity": "HIGH",
+          "priority_rank": 1,
+          "stage_blocking": true,
+          "recommended_action_key": "customer_validation",
+          "evidence": ["0 paying customers", "Only 5 documented interviews"]
+        },
+        {
+          "id": "blocker-business-model",
+          "type": "BUSINESS_MODEL_BLOCKER",
+          "severity": "MEDIUM",
+          "priority_rank": 2,
+          "stage_blocking": false,
+          "recommended_action_key": "pricing_model",
+          "evidence": ["Revenue model is not validated"]
+        }
+      ],
+      "resource_ids": ["tn_resource_001"],
+      "missing_fields": ["monthly_revenue"],
+      "progress": 18
+    },
+    "22222222-2222-4222-8222-222222222222": {
+      "diagnosed_stage": "STRUCTURATION",
+      "declared_stage": "STRUCTURATION",
+      "gap_level": "NONE",
+      "maturity_confidence": 0.78,
+      "scores": {
+        "market_score": 61,
+        "commercial_offer_score": 39,
+        "innovation_score": 35,
+        "scalability_score": 48,
+        "green_score": 42
+      },
+      "score_details": {
+        "commercial_offer_score": {"weak_sub_scores": ["administrative_readiness", "tender_references"]},
+        "scalability_score": {"weak_sub_scores": ["financial_capacity"]}
+      },
+      "blockers": [
+        {
+          "id": "blocker-tender-readiness",
+          "type": "TENDER_READINESS_BLOCKER",
+          "severity": "HIGH",
+          "priority_rank": 1,
+          "stage_blocking": true,
+          "recommended_action_key": "tender_readiness",
+          "evidence": ["Administrative documents incomplete", "Weak financial capacity"]
+        }
+      ],
+      "resource_ids": ["tn_resource_002"],
+      "missing_fields": ["bid_pricing_method"],
+      "progress": 30
+    },
+    "33333333-3333-4333-8333-333333333333": {
+      "diagnosed_stage": "GROWTH",
+      "declared_stage": "LAUNCH_PLANNING",
+      "gap_level": "MEDIUM",
+      "maturity_confidence": 0.81,
+      "scores": {
+        "market_score": 72,
+        "commercial_offer_score": 64,
+        "innovation_score": 51,
+        "scalability_score": 58,
+        "green_score": 46
+      },
+      "score_details": {
+        "green_score": {"weak_sub_scores": ["impact_measurement"]},
+        "scalability_score": {"weak_sub_scores": ["export_process"]}
+      },
+      "blockers": [
+        {
+          "id": "blocker-export-readiness",
+          "type": "EXPORT_BLOCKER",
+          "severity": "MEDIUM",
+          "priority_rank": 1,
+          "stage_blocking": false,
+          "recommended_action_key": "export_readiness",
+          "evidence": ["Export documentation not complete", "Target market prioritization missing"]
+        }
+      ],
+      "resource_ids": ["tn_resource_003", "tn_resource_004"],
+      "missing_fields": ["export_target_country"],
+      "progress": 46
+    }
+  }
+}

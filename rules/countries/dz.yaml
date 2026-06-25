@@ -1,0 +1,20 @@
+country_code: DZ
+name: Algeria
+currency: DZD
+legal_forms:
+  - PERSONNE_PHYSIQUE
+  - EURL
+  - SARL
+  - SPA
+institutions:
+  - ANADE
+  - ASF
+  - CNRC
+public_procurement_platform: BAOSEM
+terminology:
+  commerce_register: CNRC
+languages:
+  - fr
+  - ar
+specific_rules:
+  requires_formalization_for_public_programs: true

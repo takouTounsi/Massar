@@ -1,0 +1,23 @@
+version: weighted-rules-v0.1.0
+scores:
+  market_score:
+    customer_validation: 0.35
+    market_size: 0.25
+    competition_understanding: 0.20
+    revenue_model_clarity: 0.20
+  commercial_offer_score:
+    offer_clarity: 0.35
+    sales_proof: 0.35
+    administrative_readiness: 0.30
+  innovation_score:
+    novelty: 0.45
+    defensibility: 0.25
+    validation_learning: 0.30
+  scalability_score:
+    process_automation: 0.40
+    recurring_revenue: 0.30
+    team_capacity: 0.30
+  green_score:
+    practices: 0.45
+    impact_measurement: 0.30
+    regulatory_alignment: 0.25

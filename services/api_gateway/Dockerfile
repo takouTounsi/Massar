@@ -1,0 +1,15 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+ENV PYTHONPATH=/app
+
+COPY pyproject.toml /app/
+COPY alembic.ini /app/alembic.ini
+COPY shared /app/shared
+COPY services /app/services
+COPY rules /app/rules
+COPY data /app/data
+RUN pip install --no-cache-dir -e .
+
+EXPOSE 5050
+CMD ["uvicorn", "services.api_gateway.app.main:app", "--host", "0.0.0.0", "--port", "5050"]

@@ -1,0 +1,19 @@
+version: tender-readiness-v0.1.0
+activation:
+  - primary_goal == public_procurement
+  - wants_public_tenders == true
+criteria:
+  - national_platform_used
+  - similar_references
+  - administrative_documents
+  - financial_capacity
+  - guarantees
+  - equipment
+  - technical_experience
+  - previous_contracts
+  - pricing_capacity
+outputs:
+  - NOT_READY
+  - READY_FOR_SMALL_TENDERS
+  - READY_WITH_PARTNER
+  - READY

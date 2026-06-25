@@ -1,0 +1,45 @@
+{
+  "benchmark_metadata": {
+    "synthetic_evaluation_dataset": true,
+    "profile_sample_size": 30,
+    "note": "Local in-process benchmark. This is not a Docker/PostgreSQL/pgvector production benchmark."
+  },
+  "operations": [
+    {
+      "operation": "Score calculation",
+      "environment": "local in-process Python on developer workstation",
+      "runs": 30,
+      "p50_ms": 0.103,
+      "p95_ms": 0.205,
+      "min_ms": 0.098,
+      "max_ms": 0.348,
+      "error_rate": 0.0,
+      "llm_enabled": false,
+      "data_source": "local CSV/JSON and in-memory services"
+    },
+    {
+      "operation": "Resource matching",
+      "environment": "local in-process Python on developer workstation",
+      "runs": 30,
+      "p50_ms": 0.481,
+      "p95_ms": 0.934,
+      "min_ms": 0.412,
+      "max_ms": 0.968,
+      "error_rate": 0.0,
+      "llm_enabled": false,
+      "data_source": "local CSV/JSON and in-memory services"
+    },
+    {
+      "operation": "Full in-memory analysis",
+      "environment": "local in-process Python on developer workstation",
+      "runs": 20,
+      "p50_ms": 1.537,
+      "p95_ms": 2.786,
+      "min_ms": 1.15,
+      "max_ms": 7.098,
+      "error_rate": 0.0,
+      "llm_enabled": false,
+      "data_source": "local CSV/JSON and in-memory services"
+    }
+  ]
+}

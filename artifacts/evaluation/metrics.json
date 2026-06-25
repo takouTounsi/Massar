@@ -1,0 +1,21 @@
+{
+  "maturity_accuracy": 0.49,
+  "maturity_macro_f1": 0.4074206175007316,
+  "high_risk_false_ready_rate": 0.17,
+  "blocker_micro_f1": 0.817391304347826,
+  "blocker_macro_f1": 0.7581699346405228,
+  "score_reproducibility_rate": 1.0,
+  "lambda_penalty_correctness_rate": 1.0,
+  "market_score_mae_against_synthetic_hint": 25.025,
+  "scalability_score_mae_against_synthetic_hint": 11.082952500000001,
+  "anomaly_detection_accuracy": 1.0,
+  "anomaly_false_alert_rate": 0.0,
+  "resource_precision_at_3": 0.5833333333333334,
+  "resource_recall_at_3": 0.625,
+  "resource_mrr": 0.75,
+  "source_grounding_rate": 1.0,
+  "eligibility_rule_accuracy": 0.8,
+  "roadmap_grounding_rate": 1.0,
+  "robustness_no_crash_rate": 1.0,
+  "security_encryption_round_trip_pass": true
+}

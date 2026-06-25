@@ -1,0 +1,19 @@
+version: rules-v0.1.0
+taxonomy:
+  - IDEATION
+  - MARKET_VALIDATION
+  - STRUCTURATION
+  - FUNDRAISING
+  - LAUNCH_PLANNING
+  - GROWTH
+rules:
+  - id: MATURITY-IDEA-001
+    description: No MVP or weak proof keeps the project in ideation.
+  - id: MATURITY-VAL-003
+    description: MVP with no paying customers requires market validation.
+  - id: MATURITY-FUND-001
+    description: Fundraising is not supported when validation evidence is weak.
+  - id: MATURITY-FUND-002
+    description: Revenue or first paying customers can support fundraising readiness.
+  - id: MATURITY-GROWTH-001
+    description: Multiple paying customers or meaningful revenue indicates growth.

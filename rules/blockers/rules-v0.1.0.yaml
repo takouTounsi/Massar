@@ -1,0 +1,20 @@
+version: rules-v0.1.0
+blockers:
+  - MARKET_VALIDATION_BLOCKER
+  - LEGAL_BLOCKER
+  - FINANCIAL_BLOCKER
+  - TEAM_BLOCKER
+  - COMMERCIAL_BLOCKER
+  - TECHNICAL_BLOCKER
+  - SCALABILITY_BLOCKER
+  - GREEN_BLOCKER
+  - ADMINISTRATIVE_BLOCKER
+  - EXPORT_BLOCKER
+  - TENDER_READINESS_BLOCKER
+rules:
+  - id: BLOCKER-MARKET-001
+    condition: no paying customers and weak validation evidence
+  - id: BLOCKER-FIN-001
+    condition: funding requested before revenue or customer proof
+  - id: BLOCKER-TENDER-001
+    condition: public procurement requested but readiness probe is not ready

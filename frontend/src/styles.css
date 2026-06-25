@@ -1,0 +1,136 @@
+/* Self-hosted fonts (bundled, no runtime CDN) */
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/ibm-plex-sans-arabic/400.css";
+@import "@fontsource/ibm-plex-sans-arabic/500.css";
+@import "@fontsource/ibm-plex-sans-arabic/600.css";
+@import "@fontsource/ibm-plex-sans-arabic/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Sovereign Tech tokens (mirror tailwind theme for raw CSS use) */
+  --navy-900: #0a1b34;
+  --navy-700: #13294b;
+  --navy-600: #1a3a66;
+  --navy-100: #e7edf6;
+  --flag-600: #e4002b;
+  --flag-50: #fde8ec;
+  --evidence-600: #0e8c74;
+  --caution-600: #b7791f;
+  --paper: #f7f8fa;
+  --ink-900: #0f1b2d;
+  --ink-500: #5a6577;
+  --ease-sovereign: cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* Zellige motif — interlocking geometric lattice, very low opacity */
+  --zellige: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M28 0l28 28-28 28L0 28z'/%3E%3Cpath d='M28 14l14 14-14 14-14-14z'/%3E%3Ccircle cx='28' cy='28' r='4'/%3E%3C/g%3E%3C/svg%3E");
+
+  color: var(--ink-900);
+  background: var(--paper);
+  font-family: Inter, "IBM Plex Sans Arabic", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Arabic gets its dedicated geometric sans across the whole document */
+html[lang="ar"],
+html[lang="ar"] body {
+  font-family: "IBM Plex Sans Arabic", Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-card border border-navy-100 bg-white shadow-trust;
+  }
+
+  /* Navy hero surface with subtle Zellige geometric motif */
+  .panel-navy {
+    @apply rounded-card border border-navy-700 text-white shadow-trust-lg;
+    background-color: var(--navy-900);
+    background-image: var(--zellige);
+    background-size: 56px 56px;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    transition-timing-function: var(--ease-sovereign);
+  }
+
+  .btn-primary {
+    @apply bg-navy-700 text-white hover:bg-navy-600;
+  }
+
+  .btn-secondary {
+    @apply border border-navy-200 bg-white text-navy-700 hover:bg-navy-50;
+  }
+
+  /* Reserved: only for gap / anomaly resolution actions */
+  .btn-flag {
+    @apply bg-flag-600 text-white hover:bg-flag-700;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-ink-900 outline-none transition placeholder:text-ink-400 focus:border-navy-500 focus:ring-2 focus:ring-navy-100;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-semibold;
+  }
+
+  .overline {
+    @apply text-overline font-semibold uppercase text-ink-500;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-navy-100 transition hover:bg-white/10 hover:text-white;
+  }
+
+  .sidebar-link-active {
+    @apply bg-white/10 text-white;
+  }
+
+  /* Cinematic hero surface: deep navy radial + zellige, for the mission-control feel */
+  .hero-cinematic {
+    @apply relative overflow-hidden rounded-card border border-navy-700 text-white shadow-trust-lg;
+    background:
+      radial-gradient(120% 140% at 15% 0%, #16335c 0%, rgba(10, 27, 52, 0) 55%),
+      radial-gradient(120% 120% at 100% 100%, #1d2f57 0%, rgba(10, 27, 52, 0) 50%),
+      var(--zellige), var(--navy-900);
+    background-size: auto, auto, 56px 56px, auto;
+  }
+
+  /* Frosted / locked tech-tree node */
+  .node-locked {
+    @apply border-navy-100 bg-white/60 text-ink-400;
+    filter: saturate(0.5);
+    backdrop-filter: blur(1px);
+  }
+
+  /* Gold collectible badge sweep */
+  .badge-collected {
+    @apply border-gold-300 bg-gold-50;
+  }
+  .gold-shimmer {
+    background-image: linear-gradient(110deg, transparent 30%, rgba(255, 247, 224, 0.65) 50%, transparent 70%);
+    background-size: 220% 100%;
+  }
+}
+
+/* Respect reduced-motion: kill on-view/long animations, keep final state */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

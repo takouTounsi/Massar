@@ -1,0 +1,20 @@
+country_code: TN
+name: Tunisia
+currency: TND
+legal_forms:
+  - ENTREPRISE_INDIVIDUELLE
+  - SUARL
+  - SARL
+  - SA
+institutions:
+  - Smart Capital
+  - BTS
+  - APII
+public_procurement_platform: TUNEPS
+terminology:
+  startup_label: Startup Act
+languages:
+  - fr
+  - ar
+specific_rules:
+  requires_formalization_for_public_programs: true

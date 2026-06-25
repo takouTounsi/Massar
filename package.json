@@ -1,0 +1,13 @@
+{
+  "name": "entrepreneur-orientation-engine",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "lint": "npm --prefix frontend run lint"
+  },
+  "workspaces": [
+    "frontend"
+  ]
+}

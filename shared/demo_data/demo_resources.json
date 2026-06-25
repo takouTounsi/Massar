@@ -1,0 +1,48 @@
+{
+  "resources": [
+    {
+      "resource_id": "tn_resource_001",
+      "name": "Pre-incubation Market Validation Program",
+      "institution": "Demo Startup Tunisia",
+      "country": "TN",
+      "category": "incubation",
+      "eligibility_status": "POSSIBLY_ELIGIBLE",
+      "source_url": "https://example.tn/pre-incubation",
+      "matched_reasons": ["Country match", "Market validation blocker", "Funding preparation"],
+      "synthetic": true
+    },
+    {
+      "resource_id": "tn_resource_002",
+      "name": "TUNEPS Tender Readiness Clinic",
+      "institution": "Demo Public Procurement Academy",
+      "country": "TN",
+      "category": "public_procurement",
+      "eligibility_status": "POSSIBLY_ELIGIBLE",
+      "source_url": "https://example.tn/tuneps-readiness",
+      "matched_reasons": ["Public procurement goal", "Administrative readiness gap"],
+      "synthetic": true
+    },
+    {
+      "resource_id": "tn_resource_003",
+      "name": "CEPEX Export Starter Pack",
+      "institution": "Demo Export Desk",
+      "country": "TN",
+      "category": "export",
+      "eligibility_status": "ELIGIBLE",
+      "source_url": "https://example.tn/export-starter",
+      "matched_reasons": ["Export goal", "Tunisia", "Agri-food project"],
+      "synthetic": true
+    },
+    {
+      "resource_id": "tn_resource_004",
+      "name": "APIA Agri-food Structuring Support",
+      "institution": "Demo APIA Partner",
+      "country": "TN",
+      "category": "structuring",
+      "eligibility_status": "POSSIBLY_ELIGIBLE",
+      "source_url": "https://example.tn/apia-structuring",
+      "matched_reasons": ["Agri-food sector", "Structuring support"],
+      "synthetic": true
+    }
+  ]
+}

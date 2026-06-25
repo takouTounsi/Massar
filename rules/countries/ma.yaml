@@ -1,0 +1,20 @@
+country_code: MA
+name: Morocco
+currency: MAD
+legal_forms:
+  - AUTO_ENTREPRENEUR
+  - SARL
+  - SA
+  - COOPERATIVE
+institutions:
+  - Maroc PME
+  - Tamwilcom
+  - CRI
+public_procurement_platform: MarchesPublics.ma
+terminology:
+  regional_center: CRI
+languages:
+  - fr
+  - ar
+specific_rules:
+  requires_formalization_for_public_programs: true
